@@ -77,7 +77,7 @@ const ProjectOpener = ({ showCaseName, showCaseProject }) => {
       >
         <h1
           id="top-h"
-          className="uppercase font-bold text-lightPrimaryText dark:text-darkPrimaryText text-[15vh] md:text-[33.3vh] absolute bottom-0 md:top-1/2 md:bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:-translate-y-1/2"
+          className="uppercase font-extrabold md:font-bold text-lightPrimaryText dark:text-darkPrimaryText text-[10vh] md:text-[33.3vh] absolute bottom-0 md:top-1/2 md:bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:-translate-y-1/2"
         >
           {showCaseName}
         </h1>
@@ -121,7 +121,7 @@ const ProjectOpener = ({ showCaseName, showCaseProject }) => {
       >
         <h1
           id="bottom-h"
-          className="uppercase font-bold text-lightPrimaryText dark:text-darkPrimaryText text-[15vh] md:text-[33.3vh] absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="uppercase font-extrabold md:font-bold text-lightPrimaryText dark:text-darkPrimaryText text-[10vh] md:text-[33.3vh] absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
           {showCaseName}
         </h1>

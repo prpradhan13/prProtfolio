@@ -26,7 +26,7 @@ const AboutMe = () => {
   return (
     <div
       ref={aboutDiv}
-      className="w-full h-full bg-darkBtnBg dark:bg-lightSecondaryText rounded-xl p-4 font-montserrat shadow-xl dark:shadow-[#3f3f3f] hover:scale-105 duration-300 ease-in-out overflow-hidden"
+      className="w-full h-full bg-darkBtnBg dark:bg-lightSecondaryText rounded-xl p-4 font-montserrat shadow-xl dark:shadow-[#3f3f3f] lg:hover:scale-105 duration-300 ease-in-out overflow-hidden"
     >
       {/* Heading */}
       <h2
@@ -40,7 +40,7 @@ const AboutMe = () => {
       <div className="mt-1 w-16 h-1 bg-[#797979] dark:bg-gray-300 rounded-full"></div>
 
       {/* Description */}
-      <div className="mt-4 text-sm md:text-base  text-lightPrimaryText dark:text-darkBtnBg leading-relaxed overflow-hidden">
+      <div className="mt-4 text-sm md:text-base text-lightPrimaryText dark:text-darkBtnBg leading-relaxed overflow-hidden">
         <div id="aboutP" className="">
           <p className="">
             Hi, I’m Pritirnjan Pradhan! I began my journey in web development in

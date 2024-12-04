@@ -17,14 +17,14 @@ const HomePage = () => {
       </div>
 
       {/* Selected Section */}
-      <div id="selectedSection" className="dark:bg-lightBg bg-darkBtnBg p-2 mt-8 rounded-xl space-x-5 font-montserrat font-semibold ">
+      <div id="selectedSection" className="dark:bg-lightBg bg-darkBtnBg p-2 mt-8 rounded-xl space-x-2 font-montserrat font-semibold ">
         <button
           onClick={() => setSelectedSection("aboutMe")}
           className={`text-sm ${
             selectedSection === "aboutMe"
               ? "dark:text-lightPrimaryText text-darkPrimaryText bg-lightBtnBg dark:bg-darkBtnBg"
               : ""
-          }  rounded-xl w-[100px] h-[40px] duration-300 ease-linear`}
+          }  rounded-xl px-3 py-2 duration-300 ease-linear`}
         >
           About Me
         </button>
@@ -35,7 +35,7 @@ const HomePage = () => {
             selectedSection === "skills"
               ? "dark:text-lightPrimaryText text-darkPrimaryText  bg-lightBtnBg dark:bg-darkBtnBg"
               : ""
-          }  rounded-xl w-[100px] h-[40px] duration-500 ease-linear`}
+          }  rounded-xl px-3 py-2 duration-500 ease-linear`}
         >
           Skills
         </button>
@@ -49,7 +49,7 @@ const HomePage = () => {
             selectedSection === "projects"
               ? "dark:text-lightPrimaryText text-darkPrimaryText  bg-lightBtnBg dark:bg-darkBtnBg"
               : ""
-          }  rounded-xl w-[100px] h-[40px] duration-500 ease-linear`}
+          }  rounded-xl px-3 py-2 duration-500 ease-linear`}
         >
           Projects
         </button>
