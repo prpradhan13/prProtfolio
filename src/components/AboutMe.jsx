@@ -43,7 +43,7 @@ const AboutMe = () => {
       <div className="mt-4 text-sm md:text-base text-lightPrimaryText dark:text-darkBtnBg leading-relaxed overflow-hidden">
         <div id="aboutP" className="">
           <p className="">
-            Hi, I’m Pritirnjan Pradhan! I began my journey in web development in
+            Hi, I’m Pritiranjan Pradhan! I began my journey in web development in
             2023, driven by a passion for technology despite my background in
             civil engineering. Through dedication and consistent learning, I’ve
             transitioned into the tech world by mastering the fundamentals of
