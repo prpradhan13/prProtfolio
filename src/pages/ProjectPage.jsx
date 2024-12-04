@@ -1,8 +1,9 @@
 import { FaArrowDownLong } from "react-icons/fa6";
 import ProjectOpener from "../components/ProjectOpener";
-import { webProjectsData, mobieProjectsData } from "../data";
+import {webProjectsData, mobieProjectsData} from "../data.json";
 
 const ProjectPage = () => {
+
   return (
     <div className="">
       <div className="absolute z-50 top-10 text-black dark:text-white left-1/2 animate-bounce transform -translate-x-1/2">

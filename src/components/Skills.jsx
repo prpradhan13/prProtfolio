@@ -1,4 +1,4 @@
-import { backendData, frontendData, toolsData } from "../data";
+import { backendData, frontendData, toolsData } from "../data.json";
 import SkillLogo from "./SkillLogo";
 
 const Skills = () => {
