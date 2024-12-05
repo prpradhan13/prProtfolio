@@ -1,6 +1,6 @@
 import { FaArrowDownLong } from "react-icons/fa6";
 import ProjectOpener from "../components/ProjectOpener";
-import {webProjectsData, mobieProjectsData} from "../data.json";
+import data from "../data.json";
 import { useEffect } from "react";
 
 const ProjectPage = () => {
@@ -9,15 +9,18 @@ const ProjectPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const filterWeb = data.projectData.filter((item) => item.category === "web");
+  const mobileWeb = data.projectData.filter((item) => item.category === "mobile");
+
   return (
     <div className="">
       <div className="absolute z-50 top-10 text-black dark:text-white left-1/2 animate-bounce transform -translate-x-1/2">
         <FaArrowDownLong fontSize={25} />
       </div>
-      <ProjectOpener showCaseName="web" showCaseProject={webProjectsData} />
+      <ProjectOpener showCaseName="web" showCaseProject={filterWeb} />
       <ProjectOpener
         showCaseName="mobile"
-        showCaseProject={mobieProjectsData}
+        showCaseProject={mobileWeb}
       />
 
       <div className="h-[20vh] flex justify-center items-center bg-lightBg dark:bg-darkBg">
