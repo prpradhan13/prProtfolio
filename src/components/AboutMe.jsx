@@ -26,7 +26,7 @@ const AboutMe = () => {
   return (
     <div
       ref={aboutDiv}
-      className="w-full h-full bg-darkBtnBg dark:bg-lightSecondaryText rounded-xl p-4 font-montserrat shadow-xl dark:shadow-[#3f3f3f] lg:hover:scale-105 duration-300 ease-in-out overflow-hidden"
+      className="w-full h-full bg-[#d7d7d7] dark:bg-lightSecondaryText rounded-xl p-4 font-montserrat shadow-xl dark:shadow-[#3f3f3f] lg:hover:scale-105 duration-300 ease-in-out overflow-hidden"
     >
       {/* Heading */}
       <h2

@@ -10,7 +10,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full min-h-screen bg-lightBg dark:bg-darkBg flex flex-col items-center p-8">
+    <div className="w-full min-h-screen bg-lightBg dark:bg-darkBg flex flex-col items-center p-5 md:p-8">
       {/* First Part */}
       <div className="w-full flex justify-center">
         <DetailsPart />

@@ -114,40 +114,5 @@
             "name": "git & github",
             "imgPath": "https://www.dropbox.com/scl/fi/s07kwn3q9fskv85uvkf63/icons8-github-50-1.png?rlkey=0ixxbhfe1xqr2jaal45vs2swn&st=a3y1egn0&raw=1"
         }
-    ],
-    "projectData": [
-        {
-            "id": "webProject_1",
-            "category": "web",
-            "demoVideo": "https://www.dropbox.com/scl/fi/nxqp9v7hcmo3367pu3295/intro.mp4?rlkey=ru1lks3pt0tgdg2wd02z6o5u2&raw=1",
-            "imgPath": "https://www.dropbox.com/scl/fi/sznh4g234n2u6c884obii/project-3.png?rlkey=h0vh2otszdicp8sipp6656m2i&st=jen4dl5o&raw=1"
-        },
-        {
-            "id": "webProject_2",
-            "category": "web",
-            "demoVideo": "",
-            "imgPath": "https://www.dropbox.com/scl/fi/0ladg41wbrwiiaob6141b/project-4.png?rlkey=4g03u3k3q1ywcylk493x3czqv&st=tiy5yp27&raw=1"
-        },
-        {
-            "id": "webProject_3",
-            "category": "web",
-            "imgPath": "https://www.dropbox.com/scl/fi/0ladg41wbrwiiaob6141b/project-4.png?rlkey=4g03u3k3q1ywcylk493x3czqv&st=tiy5yp27&raw=1"
-        },
-        {
-            "id": "mobileProject_1",
-            "category": "mobile",
-            "demoVideo": "https://www.dropbox.com/scl/fi/j39tkj9ul3o8y89csqt5a/pz-Expo-Go.mp4?rlkey=opndf1dka19regt4n32lpc7o4&raw=1",
-            "imgPath": "https://www.dropbox.com/scl/fi/xh26fvm3d6lvp703ebbwt/projectZero.jpg?rlkey=mxaf7m3avslbq4uxy6taqm6dn&st=dk8527sd&raw=1"
-        },
-        {
-            "id": "mobileProject_2",
-            "category": "mobile",
-            "imgPath": "https://www.dropbox.com/scl/fi/5rx0xm1bdfyjf3xnvp2ua/project-2.png?rlkey=wzua0kv9uysodijwvtjrm1q07&st=o952zwm3&raw=1"
-        },
-        {
-            "id": "mobileProject_3",
-            "category": "mobile",
-            "imgPath": "https://www.dropbox.com/scl/fi/jvsievp5zca4pzneorh17/project-1.png?rlkey=osy88ifdeh6ntb6dvkczcn3ut&st=8kaxniqm&raw=1"
-        }
     ]
 }

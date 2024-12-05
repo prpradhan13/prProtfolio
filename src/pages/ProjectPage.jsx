@@ -1,16 +1,17 @@
 import { FaArrowDownLong } from "react-icons/fa6";
 import ProjectOpener from "../components/ProjectOpener";
-import data from "../data.json";
 import { useEffect } from "react";
+import { useProject } from "../context/projectContext";
 
 const ProjectPage = () => {
+  const { projectData } = useProject();
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const filterWeb = data.projectData.filter((item) => item.category === "web");
-  const mobileWeb = data.projectData.filter((item) => item.category === "mobile");
+  const filterWeb = projectData.filter((item) => item.category === "web");
+  const mobileWeb = projectData.filter((item) => item.category === "mobile");
 
   return (
     <div className="">

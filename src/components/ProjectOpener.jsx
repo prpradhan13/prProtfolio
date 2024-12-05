@@ -92,14 +92,14 @@ const ProjectOpener = ({ showCaseName, showCaseProject }) => {
             Projects
           </h1>
           <div className="flex flex-wrap justify-center gap-3 mt-4">
-            {showCaseProject.map(({ id, imgPath }) => (
+            {showCaseProject.map(({ id, imgpath }) => (
               <div key={id} className="relative w-[300px] h-[170px]">
                 <div
                   onClick={() => setSelectedProject(id)}
                   className="w-full h-full bg-slate-300 rounded-xl overflow-hidden hover:scale-105 ease-linear duration-200"
                 >
                   <img
-                    src={imgPath}
+                    src={imgpath}
                     alt="img"
                     className="w-full h-full object-cover"
                   />
