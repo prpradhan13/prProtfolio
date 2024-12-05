@@ -6,8 +6,8 @@ const ProjectPreview = () => {
   const { id } = useParams();
 
   return (
-    <div className="w-full h-screen flex justify-center">
-        <div className="w-full md:w-[40vw] h-full px-5 bg-lightBg dark:bg-darkBg font-montserrat flex flex-col justify-center gap-10">
+    <div className="w-full h-screen flex justify-center bg-lightBg dark:bg-darkBg">
+        <div className="w-full md:w-[40vw] h-full px-5 font-montserrat flex flex-col justify-center gap-10">
         {/* Desktop Part */}
         <div className="w-full flex items-center gap-4">
             <div className="flex justify-center items-center text-black dark:text-darkBtnBg">

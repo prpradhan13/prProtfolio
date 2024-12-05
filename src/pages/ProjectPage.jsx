@@ -1,8 +1,13 @@
 import { FaArrowDownLong } from "react-icons/fa6";
 import ProjectOpener from "../components/ProjectOpener";
 import {webProjectsData, mobieProjectsData} from "../data.json";
+import { useEffect } from "react";
 
 const ProjectPage = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="">

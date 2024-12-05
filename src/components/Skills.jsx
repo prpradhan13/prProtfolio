@@ -2,6 +2,7 @@ import { backendData, frontendData, toolsData } from "../data.json";
 import SkillLogo from "./SkillLogo";
 
 const Skills = () => {
+  
   return (
     <div className="">
       <div className="w-full">
