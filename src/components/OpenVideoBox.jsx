@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
 const OpenVideoBox = ({ videoPath, category, setOpenVdo }) => {
+  
   useEffect(() => {
     // Prevent scrolling when the component is mounted
     document.body.style.overflow = "hidden";
@@ -12,6 +13,7 @@ const OpenVideoBox = ({ videoPath, category, setOpenVdo }) => {
       document.body.style.overflow = "auto";
     };
   }, []);
+
   return (
     <div className="dark:bg-[#2a2a2ab9] bg-[#2a2a2ab9] w-full h-full flex flex-col justify-center items-center fixed top-0 left-0">
       <div className="relative p-5">
