@@ -11,7 +11,7 @@ export const useProject = () => {
 
 export const ProjectProvider = ({ children }) => {
     const [projectData, setProjectData] = useState([]);
-  
+    
     useEffect(() => {
       const fetchData = async () => {
         try {

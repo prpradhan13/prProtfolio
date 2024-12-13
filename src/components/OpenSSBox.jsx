@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const OpenSSBox = ({ imgCategory, imgPath, setOpenSS }) => {
-    const [loading, setLoading] = useState(new Array(imgPath.length).fill(true));
+  const [loading, setLoading] = useState(new Array(imgPath.length).fill(true));
 
   useEffect(() => {
     // Prevent scrolling when the component is mounted

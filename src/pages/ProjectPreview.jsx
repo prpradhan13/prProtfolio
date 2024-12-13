@@ -35,7 +35,7 @@ const ProjectPreview = () => {
         <div className="flex gap-3 mt-5">
           <button
             onClick={() => setOpenSS(true)}
-            className="w-32 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white px-2 py-1 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
+            className="w-32 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white p-2 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
           >
             Screenshots <IoMdImages fontSize={16} />
           </button>

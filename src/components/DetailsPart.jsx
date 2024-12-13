@@ -54,6 +54,7 @@ const DetailsPart = () => {
       </div>
 
       {/* Profile Photo */}
+      
       <div className="flex justify-center mt-5">
         <div id="profileImg" className="w-[130px] h-[130px] bg-neutral-400 rounded-full overflow-hidden flex items-center justify-center border-2 dark:border-neutral-200">
           <img src={profileImage} alt="Profile" className="object-cover" />
