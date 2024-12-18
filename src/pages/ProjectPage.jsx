@@ -17,8 +17,8 @@ const ProjectPage = () => {
       <h1 className="absolute z-50 top-10 text-black font-bold text-xs dark:text-white left-1/2  transform -translate-x-1/2 uppercase">
         scroll down
       </h1>
-      <ProjectOpener showCaseName="web" showCaseProject={filterWeb} />
       <ProjectOpener showCaseName="mobile" showCaseProject={mobileWeb} />
+      <ProjectOpener showCaseName="web" showCaseProject={filterWeb} />
 
       <div className="h-[20vh] flex justify-center items-center bg-lightBg dark:bg-darkBg">
         <h1 className="text-xl font-bold text-lightSecondaryText dark:text-[#c9c9c9] tracking-wide font-montserrat">

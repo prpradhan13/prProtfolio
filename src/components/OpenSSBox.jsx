@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
+import { IoClose } from "react-icons/io5";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const OpenSSBox = ({ imgCategory, imgPath, setOpenSS }) => {
-  const [loading, setLoading] = useState(new Array(imgPath.length).fill(true));
+  const [loading, setLoading] = useState(new Array(imgPath?.length).fill(true));
 
   useEffect(() => {
     // Prevent scrolling when the component is mounted
@@ -23,6 +24,26 @@ const OpenSSBox = ({ imgCategory, imgPath, setOpenSS }) => {
     });
   };
 
+  console.log(imgPath);
+
+  if (!imgPath || imgPath === null) {
+    return (
+      <div className="dark:bg-[#252525d4] bg-[#2a2a2ab9] w-full h-full flex justify-center items-center fixed top-0 left-0 px-5">
+        <div className="">
+          <button
+            onClick={() => setOpenSS(false)}
+            className="top-0 right-5 text-red-500"
+          >
+            <IoClose fontSize={36} />
+          </button>
+          <h1 className="text-white text-5xl font-medium">
+            Opps! No Screenshots
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="dark:bg-[#252525d4] bg-[#2a2a2ab9] w-full h-full flex justify-center items-center fixed top-0 left-0 px-5">
       <div className="bg-[#000] w-full lg:w-[70vw] h-[91vh] rounded-xl p-5 md:px-5 md:py-10 overflow-auto relative">
@@ -34,14 +55,20 @@ const OpenSSBox = ({ imgCategory, imgPath, setOpenSS }) => {
           Screenshots
         </button>
 
-        <div className={`grid grid-cols-1 ${imgCategory === "web" ? "md:grid-cols-2 lg:grid-cols-2" : ""} md:grid-cols-2 lg:grid-cols-3 md:place-items-center gap-x-3 gap-y-6 mt-5`}>
+        <div
+          className={`grid grid-cols-1 ${
+            imgCategory === "web" ? "md:grid-cols-2 lg:grid-cols-2" : ""
+          } md:grid-cols-2 lg:grid-cols-3 md:place-items-center gap-x-3 gap-y-6 mt-5`}
+        >
           {imgPath.map((value, i) => (
             <div
               key={i}
               className={`${
                 imgCategory === "web"
                   ? "w-full md:w-[350px] lg:w-[400px]"
-                  : imgCategory === "mobile" ? "h-[90vh] md:h-[70vh]" : ""
+                  : imgCategory === "mobile"
+                  ? "h-[90vh] md:h-[70vh]"
+                  : ""
               } bg-slate-300 rounded-lg overflow-hidden`}
             >
               {loading[i] && (

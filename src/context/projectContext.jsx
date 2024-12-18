@@ -15,9 +15,7 @@ export const ProjectProvider = ({ children }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const { data, error } = await supabase
-            .from('projectData')
-            .select('*');
+          const { data, error } = await supabase.from('projectData').select('*');
   
           if (error) {
             console.error('Error fetching data:', error);
