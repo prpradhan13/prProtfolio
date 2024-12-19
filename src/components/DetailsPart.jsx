@@ -68,7 +68,7 @@ const DetailsPart = () => {
         </h1>
 
         <h2 id="personalDetails" className="text-base font-semibold text-lightSecondaryText dark:text-[#c8c8c8]">
-          Mobile App Developer
+          Web/Mobile App Developer
         </h2>
       </div>
 

@@ -2,15 +2,22 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useState } from "react";
-import ClickOnProjectImg from "./ClickOnProjectImg";
+import { useRef } from "react";
+import { useProject } from "../context/projectContext";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectOpener = ({ showCaseName, showCaseProject }) => {
-  const [selectedProject, setSelectedProject] = useState(null);
+const ProjectOpener = ({ showCaseName }) => {
+  const { projectData } = useProject();
 
+  const navigate = useNavigate();
   const serviceContainer = useRef();
+
+  const showCaseProject = projectData
+    .filter((item) => item.category === showCaseName)
+    .sort((a, b) => new Date(String(b.created_at)).getTime() - new Date(String(a.created_at)).getTime())
+    .slice(0, 3);
 
   useGSAP(
     () => {
@@ -65,6 +72,14 @@ const ProjectOpener = ({ showCaseName, showCaseProject }) => {
     { scope: serviceContainer }
   );
 
+  const handleClickOnImg = (id) => {
+    navigate(`/projectPreview/${id}`);
+  }
+
+  const handleClickOnViewAll = () => {
+    navigate(`/viewall/${showCaseName}`)
+  }
+
   return (
     <section
       ref={serviceContainer}
@@ -95,7 +110,7 @@ const ProjectOpener = ({ showCaseName, showCaseProject }) => {
             {showCaseProject.map(({ id, imgpath }) => (
               <div key={id} className="relative w-[300px] h-[170px]">
                 <div
-                  onClick={() => setSelectedProject(id)}
+                  onClick={() => handleClickOnImg(id)}
                   className="w-full h-full bg-slate-300 rounded-xl overflow-hidden hover:scale-105 ease-linear duration-200"
                 >
                   <img
@@ -104,14 +119,15 @@ const ProjectOpener = ({ showCaseName, showCaseProject }) => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-
-                {selectedProject === id && <ClickOnProjectImg id={id} onClose={() => setSelectedProject(null)} />}
               </div>
             ))}
           </div>
-          <div className="text-lightPrimaryText bg-darkBtnBg p-2 font-semibold rounded-lg text-sm mt-4">
+          <button 
+            onClick={handleClickOnViewAll}
+            className="text-lightPrimaryText bg-darkBtnBg p-2 font-semibold rounded-lg text-sm mt-4"
+          >
             View all
-          </div>
+          </button>
         </div>
       </div>
 

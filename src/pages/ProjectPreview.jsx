@@ -46,15 +46,22 @@ const ProjectPreview = () => {
           >
             Watch <FaPlay fontSize={10} color="#3b82f6" />
           </button>
+
+          <button 
+            onClick={() => setOpenVdo(true)} 
+            className="w-20 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white py-1 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
+          >
+            Visite
+          </button>
         </div>
 
         {/* Technology used */}
         <div className="flex flex-wrap gap-2 mt-3">
-          {filterData?.technology.map((tech, index) => (
-            <p key={index} className="text-[#000] dark:text-[#000] bg-[#d7d7d7] dark:bg-darkBtnBg rounded-md px-2 py-1 text-xs md:text-sm capitalize font-semibold">
-              {tech}
-            </p>
-          ))}
+          {filterData?.technology.length > 0 && (
+            <h5 className="text-[#000] dark:text-[#fff] text-xs md:text-sm capitalize font-medium">
+              {filterData?.technology.join(" | ")}
+            </h5>
+          )}
         </div>
 
         {/* About */}

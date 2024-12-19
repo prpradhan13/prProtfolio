@@ -22,7 +22,7 @@ export default {
         darkActiveBtnBg: "#1e88e5",
 
         // Light theme
-        lightBg: "#fff",
+        lightBg: "#F7F6F2",
         lightPrimaryText: "#000",
         lightSecondaryText: "#575757",
         lightBtnBg: "#222",
