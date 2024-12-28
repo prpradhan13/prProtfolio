@@ -24,8 +24,6 @@ const OpenSSBox = ({ imgCategory, imgPath, setOpenSS }) => {
     });
   };
 
-  console.log(imgPath);
-
   if (!imgPath || imgPath === null) {
     return (
       <div className="dark:bg-[#252525d4] bg-[#2a2a2ab9] w-full h-full flex justify-center items-center fixed top-0 left-0 px-5">

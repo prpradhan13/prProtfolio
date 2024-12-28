@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import OpenVideoBox from "../components/OpenVideoBox";
 import { useProject } from "../context/projectContext";
 import OpenSSBox from "../components/OpenSSBox";
-
+import { IoClose } from "react-icons/io5";
 
 const ProjectPreview = () => {
   const [openVdo, setOpenVdo] = useState(false);
   const [openSS, setOpenSS] = useState(false);
+  const [nonLink, setNonLink] = useState(false);
 
   const { projectData } = useProject();
 
@@ -18,7 +19,15 @@ const ProjectPreview = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
+
+  const handleVisitClick = () => {
+    if (filterData.projectlink) {
+      window.open(filterData.projectlink, "_blank");
+    } else {
+      setNonLink(true);
+    }
+  };
 
   return (
     <div className="w-full bg-lightBg dark:bg-darkBg flex justify-center">
@@ -40,19 +49,35 @@ const ProjectPreview = () => {
             Screenshots <IoMdImages fontSize={16} />
           </button>
 
-          <button 
-            onClick={() => setOpenVdo(true)} 
+          <button
+            onClick={() => setOpenVdo(true)}
             className="w-20 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white py-1 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
           >
             Watch <FaPlay fontSize={10} color="#3b82f6" />
           </button>
 
-          <button 
-            onClick={() => setOpenVdo(true)} 
+          <button
+            onClick={handleVisitClick}
             className="w-20 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white py-1 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
           >
             Visite
           </button>
+
+          {nonLink && (
+            <div className="dark:bg-[#252525d4] bg-[#2a2a2ab9] w-full h-full flex justify-center items-center fixed top-0 left-0 px-5">
+              <div className="">
+                <button
+                  onClick={() => setNonLink(false)}
+                  className="top-0 right-5 text-red-500"
+                >
+                  <IoClose fontSize={36} />
+                </button>
+                <h1 className="text-white text-5xl font-medium">
+                  Opps! No Screenshots
+                </h1>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Technology used */}
@@ -68,18 +93,31 @@ const ProjectPreview = () => {
         <div className="w-full bg-[#d7d7d7] dark:bg-[#2d2d2d] mt-5 p-3 lg:p-6 rounded-xl">
           {/* Introduction */}
           <div className="">
-            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">Intoduction</h2>
-            <p className="text-sm font-medium dark:text-[#d7d7d7] mt-1"> {filterData?.introduction} </p>
+            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">
+              Intoduction
+            </h2>
+            <p className="text-sm font-medium dark:text-[#d7d7d7] mt-1">
+              {" "}
+              {filterData?.introduction}{" "}
+            </p>
           </div>
 
           {/* Features */}
           <div className="mt-4">
-            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">Features</h2>
+            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">
+              Features
+            </h2>
             <div className="flex flex-col gap-3 mt-1">
               {filterData?.features.map((item, index) => (
                 <div key={index}>
-                  <h3 className="dark:text-darkPrimaryText text-sm font-semibold"> {index + 1}. {item.featureTitle}</h3>
-                  <p className="text-sm dark:text-[#d7d7d7] ml-6"> {item.description} </p>
+                  <h3 className="dark:text-darkPrimaryText text-sm font-semibold">
+                    {" "}
+                    {index + 1}. {item.featureTitle}
+                  </h3>
+                  <p className="text-sm dark:text-[#d7d7d7] ml-6">
+                    {" "}
+                    {item.description}{" "}
+                  </p>
                 </div>
               ))}
             </div>
@@ -87,8 +125,14 @@ const ProjectPreview = () => {
 
           {/* Conclusion */}
           <div className="mt-4">
-            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText"> Conclusion </h2>
-            <p className="text-sm font-medium dark:text-[#d7d7d7] mt-1"> {filterData?.conclusion} </p>
+            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">
+              {" "}
+              Conclusion{" "}
+            </h2>
+            <p className="text-sm font-medium dark:text-[#d7d7d7] mt-1">
+              {" "}
+              {filterData?.conclusion}{" "}
+            </p>
           </div>
         </div>
 
@@ -101,9 +145,12 @@ const ProjectPreview = () => {
         )}
 
         {openSS && (
-          <OpenSSBox imgCategory={filterData?.category} imgPath={filterData?.screenshots} setOpenSS={setOpenSS} />
+          <OpenSSBox
+            imgCategory={filterData?.category}
+            imgPath={filterData?.screenshots}
+            setOpenSS={setOpenSS}
+          />
         )}
-
       </div>
     </div>
   );
