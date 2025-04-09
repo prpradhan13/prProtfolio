@@ -13,7 +13,7 @@ const DetailsPart = () => {
 
   const handleDownloadCV = () => {
     const cvPath =
-      "https://www.dropbox.com/scl/fi/dabsj4k54sfzd6ypyg0mp/PRPRADHAN-resume-5.pdf?rlkey=vic753g304h6duqkramr0gl1c&st=2zjq8x5t&raw=1";
+      "https://www.dropbox.com/scl/fi/j2kequr79xp6fazxspnvv/PRPRADHAN-new-resume.pdf?rlkey=ed94ibg4k3wfp491xzi52ysjh&st=qzrxkuvw&raw=1";
     window.open(cvPath, "_blank");
   };
 
