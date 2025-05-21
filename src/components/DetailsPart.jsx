@@ -1,8 +1,6 @@
 import DarkModeToggle from "./buttons/DarkModeToggle";
 import profileImage from "./../assets/profileImage.jpeg";
-import { TbBrandGithubFilled } from "react-icons/tb";
-import { ImLinkedin2 } from "react-icons/im";
-import Button from "./buttons/Button";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -38,11 +36,6 @@ const DetailsPart = () => {
       scale: 0,
       duration: 0.3,
       stagger: 0.15,
-    }).from("#btnCV", {
-      y: -20,
-      duration: 0.3,
-      stagger: 0.15,
-      opacity: 0,
     })
   }, {scope: personal})
 
@@ -54,7 +47,6 @@ const DetailsPart = () => {
       </div>
 
       {/* Profile Photo */}
-      
       <div className="flex justify-center mt-5">
         <div id="profileImg" className="w-[130px] h-[130px] bg-neutral-400 rounded-full overflow-hidden flex items-center justify-center border-2 dark:border-neutral-200">
           <img src={profileImage} alt="Profile" className="object-cover" />
@@ -67,8 +59,8 @@ const DetailsPart = () => {
           Pritiranjan Pradhan
         </h1>
 
-        <h2 id="personalDetails" className="text-base font-semibold text-lightSecondaryText dark:text-[#c8c8c8]">
-          Web/Mobile App Developer
+        <h2 id="personalDetails" className="text-base text-lightSecondaryText dark:text-[#c8c8c8]">
+          Web & Mobile App Developer
         </h2>
       </div>
 
@@ -77,27 +69,34 @@ const DetailsPart = () => {
         <Link
           id="logoSocial"
           to={"https://github.com/prpradhan13"}
-          className="dark:bg-lightBg dark:text-black bg-darkBg text-white w-8 h-8 flex justify-center items-center rounded-full"
+          className="dark:bg-lightBg dark:text-black bg-darkBg text-white w-10 h-10 flex justify-center items-center rounded-full"
         >
-          <TbBrandGithubFilled fontSize={21} />
+          <FaGithub fontSize={21} />
         </Link>
         <Link
           id="logoSocial"
           to={"https://www.linkedin.com/in/prpradhan13"}
-          className="dark:bg-lightBg dark:text-black bg-darkBg text-white w-8 h-8 flex justify-center items-center rounded-full"
+          className="dark:bg-lightBg dark:text-black bg-darkBg text-white w-10 h-10 flex justify-center items-center rounded-full"
         >
-          <ImLinkedin2 fontSize={20} />
+          <FaLinkedin fontSize={20} />
         </Link>
-      </div>
 
-      {/* CV and Contact button */}
-      <div className="flex justify-center gap-5 mt-7">
-        <div id="btnCV" className="">
-          <Button btnName={"Download CV"} onClick={handleDownloadCV} />
-        </div>
-        <div id="btnCV" className="">
-          <Button btnName={"Contact Me"} onClick={handleContactMe} />
-        </div>
+        <button
+          id="logoSocial"
+          onClick={handleDownloadCV}
+          title="Download my CV"
+          className="dark:bg-lightBg dark:text-black bg-darkBg text-white w-10 h-10 flex justify-center items-center rounded-full"
+        >
+          <span className="font-montserrat font-semibold">CV</span>
+        </button>
+        <button
+          id="logoSocial"
+          onClick={handleContactMe}
+          title="Send me an email"
+          className="dark:bg-lightBg dark:text-black bg-darkBg text-white w-10 h-10 flex justify-center items-center rounded-full"
+        >
+          <FaEnvelope fontSize={20} />
+        </button>
       </div>
     </div>
   );

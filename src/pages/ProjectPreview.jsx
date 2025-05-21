@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { IoMdImages } from "react-icons/io";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import OpenVideoBox from "../components/OpenVideoBox";
 import { useProject } from "../context/projectContext";
@@ -13,7 +13,6 @@ const ProjectPreview = () => {
   const [nonLink, setNonLink] = useState(false);
 
   const { projectData } = useProject();
-
   const { id } = useParams();
   const filterData = projectData.find((project) => project.id === id);
 
@@ -30,112 +29,125 @@ const ProjectPreview = () => {
   };
 
   return (
-    <div className="w-full bg-lightBg dark:bg-darkBg flex justify-center">
-      <div className="w-full lg:w-[60vw] min-h-screen relative p-5 lg:py-8 font-montserrat">
-        {/* Project Name */}
-        <h1 className="text-2xl capitalize text-lightPrimaryText dark:text-darkPrimaryText font-bold tracking-wide">
-          # {filterData?.name}{" "}
-        </h1>
+    <div className="w-full bg-lightBg dark:bg-darkBg min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-8 md:py-12 font-montserrat">
+        {/* Header Section */}
+        <div className="mb-8">
+          <h1 className="text-3xl md:text-4xl capitalize text-lightPrimaryText dark:text-darkPrimaryText font-bold tracking-wide">
+            {filterData?.name}
+          </h1>
+          <div className="mt-2 w-20 h-1 bg-blue-500 dark:bg-blue-400 rounded-full"></div>
+        </div>
 
-        {/* Horizontal Line */}
-        <div className="mt-1 w-16 lg:w-20 h-1 bg-[#797979] dark:bg-gray-300 rounded-full"></div>
-
-        {/* Watch and SS button */}
-        <div className="flex gap-3 mt-5">
+        {/* Action Buttons */}
+        <div className="flex flex-wrap gap-4 mb-8">
           <button
             onClick={() => setOpenSS(true)}
-            className="w-32 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white p-2 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
+            className="px-6 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors duration-200 shadow-md hover:shadow-lg"
           >
-            Screenshots <IoMdImages fontSize={16} />
+            <IoMdImages className="text-lg" />
+            Screenshots
           </button>
 
           <button
             onClick={() => setOpenVdo(true)}
-            className="w-20 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white py-1 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
+            className="px-6 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors duration-200 shadow-md hover:shadow-lg"
           >
-            Watch <FaPlay fontSize={10} color="#3b82f6" />
+            <FaPlay className="text-sm" />
+            Watch Demo
           </button>
 
           <button
             onClick={handleVisitClick}
-            className="w-20 dark:bg-darkBtnBg dark:text-black bg-lightBtnBg text-white py-1 rounded-md text-xs md:text-sm font-semibold flex items-center justify-center gap-2"
+            className="px-6 py-2.5 bg-purple-500 hover:bg-purple-600 text-white rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors duration-200 shadow-md hover:shadow-lg"
           >
-            Visite
+            <FaExternalLinkAlt className="text-sm" />
+            Visit Project
           </button>
-
-          {nonLink && (
-            <div className="dark:bg-[#252525d4] bg-[#2a2a2ab9] w-full h-full flex justify-center items-center fixed top-0 left-0 px-5">
-              <div className="">
-                <button
-                  onClick={() => setNonLink(false)}
-                  className="top-0 right-5 text-red-500"
-                >
-                  <IoClose fontSize={36} />
-                </button>
-                <h1 className="text-white text-5xl font-medium">
-                  Opps! No Screenshots
-                </h1>
-              </div>
-            </div>
-          )}
         </div>
 
-        {/* Technology used */}
-        <div className="flex flex-wrap gap-2 mt-3">
-          {filterData?.technology.length > 0 && (
-            <h5 className="text-[#000] dark:text-[#fff] text-xs md:text-sm capitalize font-medium">
-              {filterData?.technology.join(" | ")}
-            </h5>
-          )}
-        </div>
-
-        {/* About */}
-        <div className="w-full bg-[#d7d7d7] dark:bg-[#2d2d2d] mt-5 p-3 lg:p-6 rounded-xl">
-          {/* Introduction */}
-          <div className="">
-            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">
-              Intoduction
+        {/* Technology Stack */}
+        {filterData?.technology.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-lg font-semibold text-lightPrimaryText dark:text-darkPrimaryText mb-3">
+              Technology Stack
             </h2>
-            <p className="text-sm font-medium dark:text-[#d7d7d7] mt-1">
-              {" "}
-              {filterData?.introduction}{" "}
-            </p>
+            <div className="flex flex-wrap gap-2">
+              {filterData.technology.map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-gray-200 dark:bg-[#2f2f2f] text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
+        )}
+
+        {/* Project Details */}
+        <div className="bg-white dark:bg-[#2f2f2f] rounded-2xl shadow-lg p-6 md:p-8 space-y-8">
+          {/* Introduction */}
+          <section>
+            <h2 className="text-xl font-semibold text-lightPrimaryText dark:text-darkPrimaryText mb-4">
+              Introduction
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {filterData?.introduction}
+            </p>
+          </section>
 
           {/* Features */}
-          <div className="mt-4">
-            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">
+          <section>
+            <h2 className="text-xl font-semibold text-lightPrimaryText dark:text-darkPrimaryText mb-4">
               Features
             </h2>
-            <div className="flex flex-col gap-3 mt-1">
+            <div className="space-y-4">
               {filterData?.features.map((item, index) => (
-                <div key={index}>
-                  <h3 className="dark:text-darkPrimaryText text-sm font-semibold">
-                    {" "}
+                <div key={index} className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-lightPrimaryText dark:text-darkPrimaryText mb-2">
                     {index + 1}. {item.featureTitle}
                   </h3>
-                  <p className="text-sm dark:text-[#d7d7d7] ml-6">
-                    {" "}
-                    {item.description}{" "}
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {item.description}
                   </p>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
           {/* Conclusion */}
-          <div className="mt-4">
-            <h2 className="font-semibold text-base lg:text-lg capitalize text-lightPrimaryText dark:text-darkPrimaryText">
-              {" "}
-              Conclusion{" "}
+          <section>
+            <h2 className="text-xl font-semibold text-lightPrimaryText dark:text-darkPrimaryText mb-4">
+              Conclusion
             </h2>
-            <p className="text-sm font-medium dark:text-[#d7d7d7] mt-1">
-              {" "}
-              {filterData?.conclusion}{" "}
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {filterData?.conclusion}
             </p>
-          </div>
+          </section>
         </div>
 
+        {/* Modal for No Link */}
+        {nonLink && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 max-w-md w-full mx-4 relative">
+              <button
+                onClick={() => setNonLink(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+              >
+                <IoClose size={24} />
+              </button>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                Project Link Unavailable
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300">
+                This project is currently not available for external access.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Video and Screenshot Modals */}
         {openVdo && (
           <OpenVideoBox
             videoPath={filterData.demovideo}

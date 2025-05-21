@@ -25,24 +25,35 @@ const SkillLogo = ({ skillData, showCaseName }) => {
   );
 
   return (
-    <div ref={skillSection} className="font-montserrat bg-darkBtnBg dark:bg-lightSecondaryText rounded-xl p-4">
-      <h1 id="skillHead" className="dark:text-darkPrimaryText text-center text-lightPrimaryText font-bold text-lg md:text-xl">
+    <div 
+      ref={skillSection} 
+      className="font-montserrat bg-darkBtnBg dark:bg-lightSecondaryText rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+    >
+      <h1 
+        id="skillHead" 
+        className="text-center text-black dark:text-slate-100 font-bold text-xl md:text-2xl tracking-wide"
+      >
         {showCaseName}
       </h1>
 
       {/* Horizontal Line */}
-      <div className="mt-1 mx-auto w-16 h-1 bg-[#797979] dark:bg-gray-300 rounded-full"></div>
+      <div className="mt-3 mx-auto w-20 h-1 bg-gradient-to-r from-[#000] to-[#a3a3a3] rounded-full"></div>
 
-      <div className="flex flex-wrap justify-center gap-6 mt-4">
+      <div className="flex flex-wrap justify-center gap-8 mt-8">
         {skillData.map((item) => (
-          <div id="skillLogo" key={item.id} className="flex flex-col items-center">
-            <div className="w-10 h-10 md:w-12 md:h-12 flex justify-center items-center">
+          <div 
+            id="skillLogo" 
+            key={item.id} 
+            className="flex flex-col items-center group"
+          >
+            <div className="w-12 h-12 md:w-14 md:h-14 flex justify-center items-center bg-white/10 dark:bg-white/5 rounded-xl p-2 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
               <img 
                 src={item.imgPath} 
-                alt={item.name} 
+                alt={item.name}
+                className="w-full h-full object-contain" 
               />
             </div>
-            <h2 className="dark:text-darkSecondaryText text-lightPrimaryText capitalize font-medium text-xs md:text-sm">
+            <h2 className="mt-2 text-slate-500 dark:text-slate-300 capitalize font-medium text-sm md:text-base group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">
               {item.name}
             </h2>
           </div>
